@@ -15,6 +15,7 @@ import Animated, {
   FadeInDown,
   FadeInUp,
 } from "react-native-reanimated";
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 export default function SignupScreen() {
   const navigation = useNavigation();
@@ -31,44 +32,48 @@ export default function SignupScreen() {
         <Animated.Image
           entering={FadeInUp.delay(200).duration(1000).springify()}
           source={require("../assets/images/light.png")}
-          className="h-[200] w-[90]"
+          style={{width: hp(9), height: hp(20)}}
         />
         <Animated.Image
           entering={FadeInUp.delay(400).duration(1000).springify()}
           source={require("../assets/images/light.png")}
-          className="h-[160] w-[65] opacity-75"
+          style={{width: hp(6.5), height: hp(16), opacity: 0.75}}
         />
       </View>
 
       {/* title and form */}
-      <View className="h-full w-full flex justify-around pt-48">
+      <View className="h-full w-full flex justify-around" style={{paddingTop: hp(16)}}>
         {/* title */}
         <View className="flex items-center">
           <Animated.Text
             entering={FadeInUp.duration(1000).springify()}
-            className="text-white font-bold tracking-wider text-5xl"
+            className="text-white font-bold tracking-wider"
+            style={{fontSize:hp(7)}}
           >
             Sign Up
           </Animated.Text>
         </View>
 
         {/* form */}
-        <View className="flex items-center mx-5 mt-15 space-y-4">
+        <View className="flex items-center space-y-2" style={{marginVertical: hp(1), paddingHorizontal: hp(4)}}>
           <Animated.View
             entering={FadeInDown.duration(1000).springify()}
-            className="bg-black/5 p-4 rounded-2xl w-full"
+            className="bg-black/5 rounded-2xl w-full"
+            style={{padding: hp(1.6)}}
           >
             <TextInput placeholder="Username" placeholderTextColor={"gray"} />
           </Animated.View>
           <Animated.View
             entering={FadeInDown.delay(200).duration(1000).springify()}
-            className="bg-black/5 p-4 rounded-2xl w-full"
+            className="bg-black/5 rounded-2xl w-full"
+            style={{padding: hp(1.6)}}
           >
             <TextInput placeholder="Email" placeholderTextColor={"gray"} />
           </Animated.View>
           <Animated.View
             entering={FadeInDown.delay(400).duration(1000).springify()}
-            className="bg-black/5 p-4 rounded-2xl w-full mb-2"
+            className="bg-black/5 rounded-2xl w-full"
+            style={{padding: hp(1.6), marginBottom: hp(1.2)}}
           >
             <TextInput
               placeholder="Password"
@@ -81,7 +86,7 @@ export default function SignupScreen() {
             className="w-full"
             entering={FadeInDown.delay(600).duration(1000).springify()}
           >
-            <TouchableOpacity className="w-full bg-sky-400 p-3 rounded-2xl mb-3">
+            <TouchableOpacity className="w-full bg-sky-400 rounded-2xl"  style={{ padding: hp(1.2), marginBottom: hp(1.2)}}>
               <Text className="text-xl font-bold text-white text-center">
                 SignUp
               </Text>
