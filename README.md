@@ -1,4 +1,4 @@
-# Reanimated example
+# Animated Login - SignUp
 
 <p>
   <!-- iOS -->
